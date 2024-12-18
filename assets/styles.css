@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+}
+
+.container {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    animation: hueRotate 4s linear infinite;
+}
+
+@keyframes hueRotate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.row {
+    display: inline-flex;
+    margin-top: -32px;
+    margin-left: -50px;
+    overflow: hidden;
+}
+
+.row:nth-child(even) {
+    margin-left: 1px;
+}
+
+.hexagon {
+    position: relative;
+    width: 100px;
+    height: 110px;
+    background: #111;
+    margin: 1px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: 2s;
+}
+
+.hexagon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.hexagon:hover {
+    background: #0f0;
+    cursor: alias;
+    transition: 0s;
+}
+
+section {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+section .auth {
+    position: absolute;
+    width: 450px;
+    background: #222;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+}
+
+section .auth .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+section .auth .content h2 {
+    font-size: 2em;
+    color: #0f0;
+    text-transform: uppercase;
+    animation: hueRotate 4s linear infinite;
+}
+
+section .auth .content .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+section .auth .content .form .inputBox {
+    position: relative;
+    width: 100%;
+}
+
+section .auth .content .form .inputBox input {
+    width: 100%;
+    padding: 25px 10px 7.5px;
+    background: #333;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+section .auth .content .form .inputBox i {
+    position: absolute;
+    left: 0;
+    padding: 15px 10px;
+    font-style: normal;
+    color: #aaa;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+section .auth .content .form .inputBox input:focus~i,
+section .auth .content .form .inputBox input:valid~i {
+    transform: translateY(-7.5px);
+    font-size: 0.8em;
+    color: #fff;
+}
+
+section .auth .content .form .links {
+    display: flex;
+    justify-content: space-between;
+}
+
+section .auth .content .form .links a {
+    text-decoration: none;
+    color: #fff;
+}
+
+section .auth .content .form .links a:nth-child(2) {
+    color: #0f0;
+    font-weight: 600;
+    animation: hueRotate 4s linear infinite;
+}
+
+section .auth .content .form .inputBox input[type="submit"] {
+    padding: 10px;
+    background: #0f0;
+    animation: hueRotate 4s linear infinite;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.5em;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+}
+
+input[type="submit"]:active {
+    opacity: 0.6;
+}
+
+.meter {
+    width: 100%;
+    height: 5px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#strengthBar {
+    height: 100%;
+    background-color: #ef4444;
+    width: 0%;
+    border-radius: 5px;
+}
+
+.strength-text, .match-text {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.strength-text {
+    color: #6b7280;
+}
+
+.match-text {
+    color: #b91c1c;
+}
+
+.requirements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+.requirement {
+    text-align: center;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.symbol {
+    font-size: 24px;
+    font-weight: bold;
+    color: gray;
+    margin: 0;
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.description {
+    font-size: 16px;
+    color: gray;
+    margin: 4px 0 0 0;
+}
